@@ -1,0 +1,12 @@
+class Solution:
+    def decodeMessage(self, key: str, message: str) -> str:
+        key = key.replace(' ', '')
+        l = []
+        for i in key:
+            if i not in l:
+                l.append(i)
+        d = {}
+        for i, j in zip(l, ascii_lowercase):
+            d[i] = j
+        d[' '] = ' '
+        return ''.join(d[x] for x in message)
